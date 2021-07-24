@@ -104,15 +104,12 @@ def run(X_train, Y_train, X_test, Y_test, num_iterations=2000, learning_rate=0.5
 
 
 
-run(X_train,train_set_y,X_test,test_set_y,num_iterations=2000, learning_rate=0.005)
+d = run(X_train,train_set_y,X_test,test_set_y,num_iterations=2000, learning_rate=0.005)
 
     
-    
-    
-    
-    
-    
-    
+wei = np.squeeze(d['w'])
+y = [i for i in range(12288)]
+plt.scatter(y,wei)    
     
     
     
