@@ -35,7 +35,7 @@ def backward(X,Y,A):
 
 def forward(X,y,W,b):
     m = X.shape[0]
-    z = forward(X, y, W, b)
+    z = forward_pass(X, y, W, b)
     A = activation(z)
     cost = -1/m * np.sum( np.dot(y,np.log(A)),np.dot( (1-y),np.log(1-A)))
     print(cost)
