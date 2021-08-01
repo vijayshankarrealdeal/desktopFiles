@@ -24,8 +24,6 @@ def invert_gamma_mapping(array):
 
 value_invert_after = invert_gamma_mapping(im)
 
-value_invert_after[:,:,3] = 255
-
 hu = cs(value_invert_after)
 
 cs(im)
@@ -37,7 +35,7 @@ def scale_bya_factor(array,factor):
 def compositing(background,Foreground,alpha):
     C = (1-alpha)*background + alpha*Foreground
     return C
-    
+
     
 val_c = compositing(im, im_2,1)  
 
@@ -49,9 +47,38 @@ vall = compositing(im_2, black_backbround, alpha=0.55)
 cs(vall)
 
 
+def get_r_g_b(im):
+    r = im[0]
+    g = im[1]
+    b = im[2]
+    return r,g,b
 
-    
-    
+
+im_copy = im.copy()
+
+
+im_copy[2:] = im_copy[2:]/2
+im_copy[1:] = abs(im_copy[1:] -11)
+cs(im_copy)
+
+
+r,g,b = get_r_g_b(black_backbround)
+plt.plot(r,c='r')
+plt.plot(g,c='g')
+plt.plot(b,c='b')
+plt.show()
+
+f= np.ones((3,3,3))*12
+
+fil = np.ones((2,2))*0.1
+
+
+        
+        
+
+
+
+
     
     
     
