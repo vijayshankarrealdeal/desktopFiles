@@ -54,6 +54,7 @@ def get_r_g_b(im):
     return r,g,b
 
 
+
 im_copy = im.copy()
 
 
@@ -68,15 +69,23 @@ plt.plot(g,c='g')
 plt.plot(b,c='b')
 plt.show()
 
-f= np.ones((3,3,3))*12
+fil = np.random.randn(3,3)
 
-fil = np.ones((2,2))*0.1
+value_temp = np.zeros(im_2.shape)
+for i in range(len(im_2)):
+    for j in range(len(im_2)):
+        for k in range(len(fil)):
+            value_temp[i,j] = sum(im_2[i-k,j-k]*fil[k,k])
 
 
-        
-        
+def chromo(im):
+    if im > 150:
+        return 255
+    else:
+        return 0
 
-
+ik = np.vectorize(chromo)
+cs(ik(im_2))
 
 
     
